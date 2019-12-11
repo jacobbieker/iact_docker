@@ -36,3 +36,4 @@ RUN pip3 install laspy numpy
 # Install stuff for FACT
 RUN pip3 install git+https://github.com/fact-project/photon_stream.git
 RUN pip3 install pyfact astropy h5py matplotlib pandas scipy PyYAML
+RUN pip3 install git+https://github.com/jacobbieker/phs_air_shower_feature_generation.git
