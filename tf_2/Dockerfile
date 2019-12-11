@@ -18,6 +18,9 @@ RUN bash ~/Downloads/Miniconda2-4.5.11-Linux-x86_64.sh -b -p /opt/conda
 # Install pdal as a conda environment
 RUN /opt/conda/bin/conda create --yes --name cpdal-run --channel conda-forge pdal=1.7
 
+# Install tensorflow
+RUN pip3 install tensorflow-gpu keras
+
 # Compile and install pointnet2 tensorflow utilities
 COPY tf_ops /pointnet2/tf_ops
 RUN chmod u+x /pointnet2/tf_ops/compile_ops.sh
