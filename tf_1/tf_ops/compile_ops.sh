@@ -2,11 +2,9 @@
 
 TF_CFLAGS=$(python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_compile_flags()))')
 TF_LFLAGS=$(python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_link_flags()))')
-CUDA_ROOT=/usr/local/cuda-9.0
+CUDA_ROOT=/usr/local/cuda-10.0
 
 cd tf_ops
-
-g++ -std=c++11 -shared ./crop3d/fixedcrop3d_op.cc -o ./crop3d/fixedcrop3d_op.so -fPIC ${TF_CFLAGS} ${TF_LFLAGS} -O2
 
 g++ -std=c++11 -shared ./3d_interpolation/tf_interpolate.cpp -o ./3d_interpolation/tf_interpolate_so.so  -I $CUDA_ROOT/include -lcudart -L $CUDA_ROOT/lib64/ -fPIC ${TF_CFLAGS} ${TF_LFLAGS} -O2
 
